@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Fun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8d1d1; 
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+        }
+        #noButton {
+            background-color: #f44336;
+            color: white;
+            position: relative;
+        }
+        #pleaseButton {
+            background-color: #ff66b2;
+            color: white;
+        }
+        #imageContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        #message {
+            font-size: 1.5em;
+            color: black; 
+            margin-top: 20px;
+        }
+        #topImage {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="topImage" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTN3OGNiMmF2cG5mYTljOTJ5MnV0aDhjZndyYjAyNnM5N250bGFubiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cYMbzPlOSfANiAblWc/giphy.gif" alt="Top Image"> <!-- Replace with your image URL -->
+
+        <h1 id="mainMessage">Will you be my Valentine, Baby?</h1> 
+        
+        <div class="buttons-container">
+            <button id="pleaseButton">Please</button>
+            <button id="noButton">No</button>
+        </div>
+
+        <div id="imageContainer">
+            <img id="image" src="" alt="Your Image" style="max-width: 100%; height: auto; border-radius: 10px;">
+        </div>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const pleaseButton = document.getElementById('pleaseButton');
+        const mainMessage = document.getElementById('mainMessage');
+        const topImage = document.getElementById('topImage');
+        const imageContainer = document.getElementById('imageContainer');
+        const image = document.getElementById('image');
+        const message = document.getElementById('message');
+        
+        
+        function moveButton(event) {
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        
+        pleaseButton.addEventListener('click', function() {
+            
+            mainMessage.innerText = "YAYY I LOVE YOU MY JAJA:>";
+            
+            
+            topImage.style.display = 'none';
+
+            
+            imageContainer.style.display = 'block';
+            image.src = 'mylove.jpg'; 
+        });
+
+        
+        noButton.addEventListener('mouseenter', moveButton);
+    </script>
+</body>
+</html>
